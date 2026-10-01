@@ -1,0 +1,579 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Pacumê · Pavê da Farofinha</title>
+<meta name="description" content="Pacumê: o clássico Pavê da Farofinha em copinhos individuais, em São Paulo. Entrega por aplicativo ou retirada em Pinheiros.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Pacumê · Pavê da Farofinha">
+<meta property="og:description" content="O pavê das festas de infância, em copinhos individuais, entregue em São Paulo.">
+<meta property="og:image" content="assets/img/og-image.jpg">
+<meta name="theme-color" content="#111111">
+<link rel="icon" type="image/png" href="assets/img/favicon.png">
+<link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&family=Karla:wght@400;600;700&family=Playfair+Display:ital,wght@1,700;1,900&display=swap">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Bakery","name":"Pacumê · Pavê da Farofinha","email":"pavepacume@gmail.com","telephone":"+55 11 99212-4664","areaServed":"São Paulo, SP","sameAs":["https://www.instagram.com/pavepacume/","https://www.facebook.com/pavepacume"]}
+</script>
+<style>
+/* Layout: papel branco, tinta preta. Seções empilhadas com títulos em itálico e régua pontilhada (como nos ícones da marca); uma faixa preta com borda recortada ecoa o selo do logo. */
+:root{
+  --paper:#ffffff;
+  --ink:#111111;
+  --ink-soft:#4a4541;      /* cinza quente, puxado pro chocolate */
+  --choc:#8a5a3c;          /* marrom do granulado das ilustrações */
+  --line:#1111111f;
+  --on-ink:#ffffff;
+  --f-display:"Playfair Display", "Georgia", "Times New Roman", serif;
+  --f-hand:"Amatic SC", "Arial Narrow", sans-serif;
+  --f-body:"Karla", "Helvetica Neue", Arial, sans-serif;
+  --gutter:clamp(16px, 4vw, 40px);
+  --maxw:1120px;
+  color-scheme:light;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:1.0625rem;line-height:1.6}
+img{max-width:100%;height:auto;display:block}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--choc);outline-offset:3px;border-radius:4px}
+.wrap{max-width:var(--maxw);margin-inline:auto;padding-inline:var(--gutter)}
+
+/* tipografia */
+h1,h2,h3{font-family:var(--f-display);font-style:italic;font-weight:900;line-height:1.08;margin:0;text-wrap:balance;letter-spacing:-.01em}
+h1{font-size:clamp(2.4rem, 5.6vw, 4.4rem)}
+h2{font-size:clamp(2.1rem, 4.4vw, 3.4rem)}
+h3{font-size:1.6rem;font-weight:700}
+p{margin:0}
+.hand{font-family:var(--f-hand);font-weight:700;letter-spacing:.06em;text-transform:uppercase;line-height:1.1}
+.lede{font-size:1.2rem;color:var(--ink-soft);max-width:44ch}
+.dots{height:8px;width:100%;max-width:340px;background:radial-gradient(circle,var(--ink) 2.2px,transparent 2.6px) 0 50%/14px 8px repeat-x}
+.section-head{display:grid;gap:14px;margin-bottom:clamp(28px,4vw,48px)}
+.section-head .hand{font-size:1.5rem;color:var(--choc)}
+
+/* botões */
+.btn{display:inline-flex;align-items:center;gap:10px;padding:14px 24px;border-radius:999px;font-weight:700;text-decoration:none;font-size:1rem;border:2px solid var(--ink);transition:transform .15s ease, background .15s ease, color .15s ease}
+.btn-ink{background:var(--ink);color:var(--on-ink)}
+.btn-ink:hover{background:var(--choc);border-color:var(--choc)}
+.btn-line{background:transparent;color:var(--ink)}
+.btn-line:hover{background:var(--ink);color:var(--on-ink)}
+.btn-paper{background:var(--paper);color:var(--ink);border-color:var(--paper)}
+.btn-paper:hover{background:transparent;color:var(--on-ink)}
+.btn:active{transform:translateY(1px)}
+.btn svg{width:20px;height:20px;flex:none}
+
+/* header */
+.top{position:fixed;top:0;left:0;right:0;z-index:50;background:var(--paper);border-bottom:1px solid var(--line);padding-top:env(safe-area-inset-top,0px)}
+body{padding-top:var(--hdr,calc(86px + env(safe-area-inset-top,0px)))}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:10px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none}
+.brand img{width:52px;height:52px}
+.nav{display:flex;gap:clamp(14px,2.4vw,28px);align-items:center}
+.nav-links{display:flex;gap:clamp(10px,2.2vw,26px);align-items:flex-end}
+.nav-links a{display:block;text-decoration:none;border-radius:8px}
+.nav-links img{height:70px;width:auto;transition:transform .2s ease}
+.nav-links a:hover img{transform:rotate(-5deg) scale(1.06)}
+.nav .btn{font-size:.95rem;padding:10px 18px}
+@media (max-width:760px){
+  .top .wrap{flex-wrap:wrap;row-gap:2px;padding-block:8px 6px}
+  .brand img{width:44px;height:44px}
+  .nav{display:contents}
+  .nav .btn{order:2}
+  .nav-links{order:3;flex-basis:100%;justify-content:space-around;padding-top:4px;border-top:1px solid var(--line)}
+  .nav-links img{height:54px}
+}
+
+/* hero */
+.hero .wrap{display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(24px,5vw,64px);align-items:center;padding-block:clamp(40px,7vw,88px) clamp(32px,5vw,56px)}
+.hero-copy{display:grid;gap:22px;min-width:0}
+.hero-copy .hand{font-size:1.9rem;color:var(--choc)}
+.hero-ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:6px}
+.hero-note{font-size:.95rem;color:var(--ink-soft)}
+.hero-art{position:relative;justify-self:center;width:min(80%,304px)}
+.hero-art .cup{width:100%}
+.hero-art .seal{position:absolute;width:46%;left:-18%;bottom:6%;transform:rotate(-12deg);z-index:2}
+.hearts{position:absolute;inset:0;pointer-events:none}
+.hearts img{position:absolute;width:calc(var(--s) * .8);left:var(--x);top:var(--y);transform:rotate(var(--r));animation:bob 3.6s ease-in-out infinite;animation-delay:var(--d)}
+@keyframes bob{0%,100%{translate:0 0}50%{translate:0 -8px}}
+@media (prefers-reduced-motion:reduce){.hearts img{animation:none}}
+@media (max-width:760px){
+  .hero .wrap{grid-template-columns:1fr}
+  .hero-art{width:min(62%,240px);order:-1}
+  .hero-art .seal{left:-14%}
+}
+
+
+section{scroll-margin-top:calc(var(--hdr,86px) + 16px)}
+.block{padding-block:clamp(56px,9vw,112px)}
+
+/* história */
+.story{display:grid;justify-content:center}
+.story-text{display:grid;gap:18px;max-width:60ch;min-width:0}
+.story-text p{font-size:1.15rem}
+.story-text .quote{font-family:var(--f-display);font-style:italic;font-weight:900;font-size:clamp(1.7rem,3.2vw,2.2rem);line-height:1.2;margin-top:-8px}
+.layers{margin-top:clamp(48px,7vw,88px);display:grid;grid-template-columns:1fr;gap:18px;justify-items:center;text-align:center}
+.layers img{width:min(100%,760px)}
+.layers p{color:var(--ink-soft);max-width:52ch}
+@media (min-width:900px){
+  #historia > .wrap{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:clamp(32px,5vw,72px);align-items:center}
+  #historia .story{justify-content:start}
+  #historia .layers{margin-top:0}
+  #historia .layers img{width:min(100%,460px)}
+}
+
+
+/* funcionamento */
+.tiers{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(16px,2.5vw,28px)}
+.tier{border:2px solid var(--ink);border-radius:18px;padding:24px;display:grid;grid-template-rows:120px auto auto auto 1fr;align-content:start;gap:10px;min-width:0}
+.tier-art{display:flex;align-items:center;justify-content:center;gap:6px}
+.tier-art img{max-height:120px;width:auto;max-width:100%;min-width:0}
+.tier-art .x + img, .tier-art img:has(+ .x){max-width:78%}
+.tier-art .x{font-family:var(--f-hand);font-size:2.2rem}
+.tier .qty{font-family:var(--f-hand);font-weight:700;font-size:1.8rem;letter-spacing:.04em;text-transform:uppercase}
+.tier .size{color:var(--ink-soft);font-size:.95rem;margin-top:-6px}
+.tier.featured .size{color:#d8d2cc}
+a.tier{text-decoration:none;color:inherit;transition:transform .15s ease, box-shadow .15s ease;cursor:pointer}
+a.tier:hover{transform:translateY(-3px);box-shadow:0 6px 0 var(--ink)}
+a.tier.featured:hover{box-shadow:0 6px 0 var(--choc)}
+.tier-cta{justify-self:start;align-self:end;margin-top:6px;display:inline-flex;gap:6px;align-items:center;font-weight:700;font-size:.95rem;padding:9px 16px;border-radius:999px;background:var(--ink);color:var(--on-ink)}
+.tier.featured .tier-cta{background:var(--paper);color:var(--ink)}
+a.tier:hover .tier-cta{background:var(--choc);color:var(--on-ink)}
+.tier .price{font-family:var(--f-display);font-style:italic;font-weight:900;font-size:2.4rem;line-height:1;font-variant-numeric:tabular-nums}
+.tier .price small{font-family:var(--f-body);font-style:normal;font-weight:400;font-size:1rem;color:var(--ink-soft)}
+.tier.featured{background:var(--ink);color:var(--on-ink)}
+.tier.featured .price small{color:#d8d2cc}
+.tier.featured .tier-art img{background:var(--paper);border-radius:12px;padding:6px}
+@media (max-width:860px){.tiers{grid-template-columns:1fr}.tier{grid-template-rows:auto;grid-template-columns:130px 1fr;align-items:center;column-gap:20px}.tier-art{grid-row:span 4}.tier-art img{max-height:90px}}
+@media (max-width:420px){.tier{grid-template-columns:1fr}.tier-art{grid-row:auto;justify-content:flex-start}}
+
+.sub{display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,5vw,64px);margin-top:clamp(40px,6vw,64px)}
+.sub > div{min-width:0}
+.sub h3{margin-bottom:14px}
+.plan{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding-block:14px;border-bottom:2px dotted var(--ink)}
+.plan:first-of-type{border-top:2px dotted var(--ink)}
+.plan b{font-family:var(--f-display);font-style:italic;font-size:1.5rem;font-variant-numeric:tabular-nums;white-space:nowrap}
+.muted{color:var(--ink-soft);font-size:.95rem;margin-top:10px}
+.rules{list-style:none;margin:0;padding:0;display:grid;gap:12px}
+.rules li{display:grid;grid-template-columns:22px 1fr;gap:10px}
+.rules li::before{content:"";width:10px;height:10px;border-radius:50%;background:var(--ink);margin-top:.55em}
+@media (max-width:760px){.sub{grid-template-columns:1fr}}
+
+.frete{margin-top:clamp(28px,4vw,40px);border:2px dashed var(--ink);border-radius:18px;padding:clamp(20px,3vw,32px);display:grid;grid-template-columns:auto 1fr;gap:16px clamp(24px,4vw,56px);align-items:center}
+.frete h3{font-size:clamp(1.8rem,3.4vw,2.4rem);font-weight:900}
+.frete-opts{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.frete-opts > div{min-width:0}
+.frete .hand{font-size:1.6rem;color:var(--choc)}
+@media (max-width:760px){.frete{grid-template-columns:1fr}.frete-opts{grid-template-columns:1fr}}
+
+/* eventos */
+.events{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(24px,5vw,64px);align-items:start}
+.events figure{margin:0}
+.events figure img{border-radius:18px;width:100%;aspect-ratio:3/4;object-fit:cover}
+.events figcaption{font-family:var(--f-hand);font-weight:700;font-size:1.6rem;line-height:1.2;margin-top:10px;max-width:30ch}
+.events-copy{display:grid;gap:22px;min-width:0}
+.options{list-style:none;margin:0;padding:0;display:grid;gap:0}
+.opt{display:grid;grid-template-columns:1fr auto;gap:4px 16px;padding-block:18px;border-bottom:2px dotted var(--ink)}
+.opt:first-child{border-top:2px dotted var(--ink)}
+.opt h3{font-size:1.45rem}
+.opt .fee{font-family:var(--f-display);font-style:italic;font-weight:900;font-size:1.3rem;text-align:right;white-space:nowrap}
+.opt p{grid-column:1 / -1;color:var(--ink-soft)}
+@media (max-width:760px){.events{grid-template-columns:1fr}.events figure{max-width:420px}}
+
+/* pedido */
+.order{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:clamp(20px,3vw,32px);align-items:start}
+.order-list{border:2px solid var(--ink);border-radius:18px;padding:8px 24px;display:grid}
+.order-row{display:grid;grid-template-columns:64px minmax(0,1fr) auto;gap:16px;align-items:center;padding-block:18px;border-bottom:2px dotted var(--ink)}
+.order-row:last-child{border-bottom:0}
+.order-row img{width:64px;height:64px;object-fit:contain}
+.order-name{font-family:var(--f-hand);font-weight:700;font-size:1.6rem;letter-spacing:.04em;text-transform:uppercase;line-height:1.05}
+.order-hint{color:var(--ink-soft);font-size:.95rem}
+.stepper{display:flex;align-items:center;gap:10px}
+.step{width:44px;height:44px;border-radius:50%;border:2px solid var(--ink);background:var(--paper);color:var(--ink);font-size:1.4rem;font-weight:700;line-height:1;cursor:pointer;display:grid;place-items:center;font-family:var(--f-body)}
+.step:hover:not(:disabled){background:var(--ink);color:var(--on-ink)}
+.step:disabled{opacity:.3;cursor:default}
+.qty-n{min-width:26px;text-align:center;font-size:1.3rem;font-weight:700;font-variant-numeric:tabular-nums}
+.summary{position:sticky;top:calc(var(--hdr,86px) + 16px);background:var(--ink);color:var(--on-ink);border-radius:18px;padding:clamp(22px,3vw,32px);display:grid;gap:18px}
+.summary h3{font-size:1.9rem}
+.summary .muted-on{color:#d8d2cc;font-size:.95rem;margin:0}
+.sum-lines{display:grid;gap:8px}
+.sum-line{display:flex;justify-content:space-between;gap:12px}
+.sum-line b{white-space:nowrap;font-variant-numeric:tabular-nums}
+.sum-total{display:grid;gap:4px;padding-top:14px;border-top:1px solid #ffffff33}
+.sum-total .row{display:flex;justify-content:space-between;align-items:baseline;gap:12px}
+.sum-total .big{font-family:var(--f-display);font-style:italic;font-weight:900;font-size:2.4rem;line-height:1;font-variant-numeric:tabular-nums}
+.sum-save{color:#e7c9a6;font-size:.95rem}
+.field{display:grid;gap:6px}
+.field label,.field .lbl{font-weight:700;font-size:.95rem}
+.field input{min-height:48px;padding:0 14px;border-radius:12px;border:1.5px solid #ffffff55;background:var(--paper);color:var(--ink);font-size:1rem;font-family:var(--f-body)}
+.toggle{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.toggle button{min-height:44px;border-radius:12px;border:1.5px solid #ffffff66;background:transparent;color:var(--on-ink);font-weight:700;font-size:.95rem;font-family:var(--f-body);cursor:pointer;padding:6px 10px}
+.toggle button[aria-pressed="true"]{background:var(--paper);color:var(--ink);border-color:var(--paper)}
+.summary .btn{justify-content:center}
+@media (max-width:860px){.order{grid-template-columns:1fr}.summary{position:static}}
+@media (max-width:420px){.order-list{padding:4px 16px}.order-row{grid-template-columns:48px minmax(0,1fr);row-gap:10px}.order-row img{width:48px;height:48px}.stepper{grid-column:2}}
+
+/* faixa preta recortada */
+.scallop{--r:14px;position:relative;background:var(--ink);color:var(--on-ink);margin-block:var(--r)}
+.scallop::before,.scallop::after{content:"";position:absolute;left:0;right:0;height:var(--r)}
+.scallop::before{top:calc(-1*var(--r) + 1px);background:radial-gradient(circle at 50% 100%,var(--ink) calc(var(--r) - .5px),transparent var(--r)) 0 0/calc(2*var(--r)) var(--r) repeat-x}
+.scallop::after{bottom:calc(-1*var(--r) + 1px);background:radial-gradient(circle at 50% 0,var(--ink) calc(var(--r) - .5px),transparent var(--r)) 0 0/calc(2*var(--r)) var(--r) repeat-x}
+.cta .wrap{padding-block:clamp(64px,9vw,104px);display:grid;gap:22px;justify-items:center;text-align:center}
+.cta .hand{font-size:1.8rem;color:#d8c2b0}
+.cta p{max-width:46ch;color:#e6e1dc}
+.cta .dots{background:radial-gradient(circle,var(--on-ink) 2.2px,transparent 2.6px) 0 50%/14px 8px repeat-x}
+
+/* contato */
+.contact{display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,5vw,64px)}
+.card{display:grid;gap:18px;align-content:start;min-width:0}
+.card > img{height:170px;width:auto}
+.card dl{margin:0;display:grid;gap:14px}
+.card dt{font-family:var(--f-hand);font-weight:700;font-size:1.35rem;letter-spacing:.05em;text-transform:uppercase;color:var(--choc);line-height:1}
+.card dd{margin:0;font-size:1.15rem;overflow-wrap:anywhere}
+.card dd a{text-decoration-thickness:1px;text-underline-offset:3px}
+.steps{margin:0;padding-left:1.3em;display:grid;gap:8px}
+@media (max-width:760px){.contact{grid-template-columns:1fr}.card > img{height:130px}}
+
+footer{border-top:1px solid var(--line)}
+footer .wrap{display:flex;flex-wrap:wrap;gap:16px;align-items:center;justify-content:space-between;padding-block:28px;color:var(--ink-soft);font-size:.9rem}
+footer img{width:44px;height:44px}
+footer .row{display:flex;gap:12px;align-items:center}
+
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#inicio" aria-label="Pacumê, início"><img src="assets/img/logo.png" alt="Pacumê, pavê da farofinha" width="52" height="52"></a>
+    <nav class="nav" aria-label="Seções">
+      <span class="nav-links">
+        <a href="#historia"><img src="assets/img/icone-historia.png" alt="História" width="520" height="558"></a>
+        <a href="#funcionamento"><img src="assets/img/icone-funcionamento.png" alt="Funcionamento e preços" width="700" height="475"></a>
+        <a href="#eventos"><img src="assets/img/icone-eventos.png" alt="Eventos" width="520" height="610"></a>
+        <a href="#contato"><img src="assets/img/icone-contato.png" alt="Contato" width="520" height="730"></a>
+      </span>
+      <a class="btn btn-ink" href="#pedido">Pedir</a>
+    </nav>
+  </div>
+</header>
+
+<main id="inicio">
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="wrap">
+      <div class="hero-copy">
+        <p class="hand">É pavê ou pacumê?</p>
+        <h1 id="hero-title">O Pavê da Farofinha que só a minha família tinha acesso, agora também na sua casa.</h1>
+        <p class="lede">O melhor doce que você vai experimentar: uma camada de sorvete, outra de brigadeiro, com farofinha de biscoito embaixo e granulado em cima. Feito artesanalmente, com carinho para sua casa ou para dividir com a galera do escritório.</p>
+        <div class="hero-ctas">
+          <a class="btn btn-ink" href="#pedido">Montar meu pedido</a>
+          <a class="btn btn-line" href="#funcionamento">Ver preços</a>
+        </div>
+        <p class="hero-note">Frete não incluso: enviamos por aplicativo de entrega ou você retira em Pinheiros.</p>
+      </div>
+      <div class="hero-art">
+        <img class="cup" src="assets/img/pave-copo.png" alt="Ilustração de um copinho de pavê com farofinha, chocolate, sorvete e granulado" width="700" height="1060">
+        <div class="hearts" aria-hidden="true">
+          <img src="assets/img/coracao-mini.png" alt="" style="--s:38px;--x:-6%;--y:4%;--r:-18deg;--d:0s">
+          <img src="assets/img/coracao-mini.png" alt="" style="--s:26px;--x:18%;--y:-6%;--r:10deg;--d:.6s">
+          <img src="assets/img/coracao-mini.png" alt="" style="--s:30px;--x:84%;--y:-2%;--r:16deg;--d:1.2s">
+          <img src="assets/img/coracao-mini.png" alt="" style="--s:44px;--x:96%;--y:28%;--r:-8deg;--d:.3s">
+          <img src="assets/img/coracao-mini.png" alt="" style="--s:24px;--x:-10%;--y:38%;--r:14deg;--d:1.8s">
+          <img src="assets/img/coracao-mini.png" alt="" style="--s:34px;--x:98%;--y:62%;--r:20deg;--d:.9s">
+          <img src="assets/img/coracao-mini.png" alt="" style="--s:22px;--x:82%;--y:92%;--r:-14deg;--d:1.5s">
+          <img src="assets/img/coracao-mini.png" alt="" style="--s:28px;--x:52%;--y:-9%;--r:-6deg;--d:2.1s">
+        </div>
+        <img class="seal" src="assets/img/logo.png" alt="" width="900" height="900">
+      </div>
+    </div>
+  </section>
+
+
+  <section id="historia" class="block" aria-labelledby="historia-title">
+    <div class="wrap">
+      <div class="story">
+        <div class="story-text">
+          <div class="section-head">
+            <p class="hand">Nossa história</p>
+            <h2 id="historia-title">Minha mãe fazia, eu achava que era “comum”</h2>
+            <div class="dots" aria-hidden="true"></div>
+          </div>
+          <p>O Pavê da Farofinha marcou a nossa infância. Era ele a estrela das festas de aniversário, mas também a sobremesa de dia a dia. Sempre tinha uma travessa quase acabando no congelador. Quando eu, o filho, fui viajar, pedi a receita para aprender a fazer enquanto estivesse distante.</p>
+          <p>A Pacumê começou como brincadeira, fazendo a receita pros amigos, e virou coisa séria: levar uma receita presa em uma família para mais gente provar.</p>
+          <p>A piada de tiozão não nos incomoda:</p>
+          <p class="quote">“É pavê ou é pra comê?” A gente responde: os dois.</p>
+        </div>
+      </div>
+
+      <div class="layers">
+        <img src="assets/img/pave-camadas.png" alt="As camadas do pavê, de cima para baixo: granulado, sorvete, chocolate e farofinha" width="1100" height="593" loading="lazy">
+        <p>Farofinha crocante no fundo, chocolate tipo brigadeiro, sorvete e granulado por cima. Quatro camadas em cada porção.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="funcionamento" class="block" aria-labelledby="func-title" style="padding-top:0">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="hand">Funcionamento</p>
+        <h2 id="func-title">Escolha o seu pavê</h2>
+        <div class="dots" aria-hidden="true"></div>
+      </div>
+
+      <div class="tiers">
+        <a class="tier" href="#pedido" data-item="ind">
+          <div class="tier-art"><img src="assets/img/pave-copo.png" alt="" width="700" height="1060" loading="lazy"></div>
+          <p class="qty">1 pavê individual</p>
+          <p class="size">aprox. 200 ml</p>
+          <p class="price">R$ 14,00</p>
+          <span class="tier-cta">Montar meu pedido <span aria-hidden="true">→</span></span>
+        </a>
+        <a class="tier featured" href="#pedido" data-item="kit4">
+          <div class="tier-art"><img src="assets/img/pave-4copos.png" alt="" width="1098" height="400" loading="lazy"></div>
+          <p class="qty">4 pavês individuais</p>
+          <p class="size">aprox. 200 ml cada</p>
+          <p class="price">R$ 48,00 <small>R$ 12,00 cada</small></p>
+          <span class="tier-cta">Montar meu pedido <span aria-hidden="true">→</span></span>
+        </a>
+        <a class="tier" href="#pedido" data-item="g750">
+          <div class="tier-art"><img src="assets/img/pave-grande-camadas.jpg" alt="Pavê grande na travessa de 750 ml, com as camadas de granulado, sorvete, chocolate e farofinha" width="900" height="636" loading="lazy"></div>
+          <p class="qty">Pavê grande</p>
+          <p class="size">750 ml, para dividir</p>
+          <p class="price">R$ 50,00</p>
+          <span class="tier-cta">Montar meu pedido <span aria-hidden="true">→</span></span>
+        </a>
+      </div>
+
+      <div class="frete" role="note" aria-labelledby="frete-title">
+        <h3 id="frete-title">Frete não incluso</h3>
+        <div class="frete-opts">
+          <div><p class="hand">Entrega</p><p>Enviamos por entrega de aplicativos, a partir de Pinheiros. O valor do frete é calculado no pedido.</p></div>
+          <div><p class="hand">Retirada</p><p>Sem frete: retire o seu pedido em Pinheiros. (Você pode solicitar retirada por aplicativo também, se preferir.)</p></div>
+        </div>
+      </div>
+      <p class="muted" style="margin-top:18px">O Pavê deve ser mantido no congelador. Retire uns 5 minutinhos antes do consumo, como um sorvete. O pavê dura até 90 dias congelado.</p>
+    </div>
+  </section>
+
+  <section id="pedido" class="block" aria-labelledby="pedido-title" style="padding-top:0">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="hand">Faça seu pedido</p>
+        <h2 id="pedido-title">Monte o seu pedido e mande pelo WhatsApp</h2>
+        <div class="dots" aria-hidden="true"></div>
+      </div>
+      <div class="order">
+        <div class="order-list" id="order-list"></div>
+        <aside class="summary" aria-live="polite">
+          <h3>Seu pedido</h3>
+          <p class="muted-on" id="sum-empty">Escolha os pavês ao lado com os botões + e −.</p>
+          <div class="sum-lines" id="sum-lines" hidden></div>
+          <div class="sum-total" id="sum-total" hidden>
+            <div class="sum-save" id="sum-save" hidden></div>
+            <div class="row"><span>Total <span class="muted-on" style="display:inline">+ frete</span></span><span class="big" id="sum-value">R$ 0,00</span></div>
+            <p class="muted-on" id="sum-count"></p>
+          </div>
+          <div class="field">
+            <span class="lbl" id="modo-lbl">Como você quer receber?</span>
+            <div class="toggle" role="group" aria-labelledby="modo-lbl">
+              <button type="button" id="modo-entrega" aria-pressed="true">Entrega por aplicativo</button>
+              <button type="button" id="modo-retirada" aria-pressed="false">Retirar em Pinheiros</button>
+            </div>
+          </div>
+          <div class="field">
+            <label for="pedido-nome">Seu nome</label>
+            <input id="pedido-nome" type="text" autocomplete="name" placeholder="Para sabermos de quem é o pedido">
+          </div>
+          <div class="field" id="campo-endereco">
+            <label for="pedido-endereco">Endereço de entrega</label>
+            <input id="pedido-endereco" type="text" autocomplete="street-address" placeholder="Rua, número, bairro">
+          </div>
+          <a class="btn btn-paper" id="pedido-wa" href="https://wa.me/5511992124664" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Z"/></svg>
+            <span id="pedido-wa-label">Chamar no WhatsApp</span>
+          </a>
+          <p class="muted-on">A mensagem já vai com o pedido e o total. O frete não está incluso: o valor é combinado na conversa.</p>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta scallop" aria-labelledby="cta-title">
+    <div class="wrap">
+      <p class="hand">Bateu vontade?</p>
+      <h2 id="cta-title">Peça o seu Pavê da Farofinha</h2>
+      <div class="dots" aria-hidden="true"></div>
+      <p>Mande no WhatsApp quantos pavês você quer e o endereço de entrega, ou avise que vai retirar em Pinheiros. A gente confirma o valor do frete e combina o horário.</p>
+      <a class="btn btn-paper js-wa" href="https://wa.me/5511992124664" target="_blank" rel="noopener">Fazer pedido pelo WhatsApp</a>
+    </div>
+  </section>
+
+  <section id="eventos" class="block" aria-labelledby="eventos-title">
+    <div class="wrap">
+      <div class="events">
+        <div class="events-copy">
+          <div class="section-head" style="margin-bottom:0">
+            <p class="hand">Eventos</p>
+            <h2 id="eventos-title">Uma sobremesa diferente para a sua festa</h2>
+            <div class="dots" aria-hidden="true"></div>
+          </div>
+          <p>Aniversários, casamentos, eventos da empresa. Cada convidado ganha o seu copinho, sem faca, sem prato e sem fila para servir.</p>
+          <p>Para pedidos maiores, fale com a gente pelo WhatsApp e monte o orçamento da sua festa.</p>
+          <div><a class="btn btn-ink js-wa" data-msg="Olá! Quero um orçamento de Pavê da Farofinha para um evento." href="https://wa.me/5511992124664" target="_blank" rel="noopener">Pedir orçamento para evento</a></div>
+        </div>
+        <figure>
+          <img src="assets/img/carrinho.jpg" alt="O carrinho da Pacumê, com o logo da marca, ao lado de vasos de plantas" width="960" height="1280" loading="lazy">
+          <figcaption>O carrinho da Pacumê não está mais ativo, mas quem sabe ele volta em breve...</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section id="contato" class="block" aria-labelledby="contato-title">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="hand">Contato</p>
+        <h2 id="contato-title">Fale com a Pacumê</h2>
+        <div class="dots" aria-hidden="true"></div>
+      </div>
+      <div class="contact">
+        <div class="card">
+          <img src="assets/img/contato-infos.png" alt="Infos" width="520" height="505" loading="lazy">
+          <dl>
+            <div><dt>WhatsApp</dt><dd><a class="js-wa" href="https://wa.me/5511992124664" target="_blank" rel="noopener">(11) 99212-4664</a></dd></div>
+            <div><dt>E-mail</dt><dd><a href="mailto:pavepacume@gmail.com">pavepacume@gmail.com</a></dd></div>
+            <div><dt>Instagram</dt><dd><a href="https://www.instagram.com/pavepacume/" target="_blank" rel="noopener">@pavepacume</a></dd></div>
+            <div><dt>Entrega e retirada</dt><dd>Enviamos por aplicativo de entrega, a partir de Pinheiros (frete não incluso), ou você retira em Pinheiros, São Paulo.</dd></div>
+          </dl>
+        </div>
+        <div class="card">
+          <img src="assets/img/contato-pedidos.png" alt="Pedidos online" width="800" height="336" loading="lazy">
+          <ol class="steps">
+            <li>Escolha: pavê individual (aprox. 200 ml), kit com 4 ou pavê grande de 750 ml.</li>
+            <li>Diga o endereço de entrega ou se prefere retirar em Pinheiros.</li>
+            <li>Envie tudo pelo WhatsApp e combine o horário.</li>
+            <li>Receba, guarde no congelador e retire uns 5 minutinhos antes de servir.</li>
+          </ol>
+          <div><a class="btn btn-ink js-wa" href="https://wa.me/5511992124664" target="_blank" rel="noopener">Pedir pelo WhatsApp</a></div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="row"><img src="assets/img/logo.png" alt="" width="44" height="44"><span>Pacumê · Pavê da Farofinha · São Paulo</span></div>
+    <div class="row">
+      <a href="https://www.instagram.com/pavepacume/" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://www.facebook.com/pavepacume" target="_blank" rel="noopener">Facebook</a>
+      <a href="mailto:pavepacume@gmail.com">E-mail</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Mantém o conteúdo abaixo do menu fixo.
+  (function(){
+    var top=document.querySelector(".top");
+    function fit(){document.documentElement.style.setProperty("--hdr",top.offsetHeight+"px");}
+    fit(); window.addEventListener("resize",fit); window.addEventListener("load",fit);
+  })();
+  // Monte seu pedido: quantidades, total e mensagem para o WhatsApp.
+  (function(){
+    var PHONE = "5511992124664";
+    var ITEMS = [
+      { id:"ind",  name:"Pavê individual", hint:"aprox. 200 ml · R$ 14,00", price:14, img:"assets/img/pave-copo.png", one:"pavê individual", many:"pavês individuais", unidades:1 },
+      { id:"kit4", name:"Kit com 4 pavês", hint:"aprox. 200 ml cada · R$ 48,00", price:48, img:"assets/img/pave-4copos.png", one:"kit com 4 pavês", many:"kits com 4 pavês", unidades:4 },
+      { id:"g750", name:"Pavê grande", hint:"750 ml, para dividir · R$ 50,00", price:50, img:"assets/img/pave-grande-camadas.jpg", one:"pavê grande (750 ml)", many:"pavês grandes (750 ml)", unidades:0 }
+    ];
+    var q = {}, modo = "entrega";
+    var brl = function(v){ return "R$ " + v.toFixed(2).replace(".", ","); };
+    var list = document.getElementById("order-list");
+    ITEMS.forEach(function(it){
+      q[it.id] = 0;
+      var row = document.createElement("div"); row.className = "order-row";
+      row.innerHTML =
+        '<img src="'+it.img+'" alt="" width="64" height="64">' +
+        '<div><div class="order-name">'+it.name+'</div><div class="order-hint">'+it.hint+'</div></div>' +
+        '<div class="stepper">' +
+          '<button class="step" type="button" data-d="-1" aria-label="Remover '+it.name+'" disabled>−</button>' +
+          '<span class="qty-n" aria-live="polite">0</span>' +
+          '<button class="step" type="button" data-d="1" aria-label="Adicionar '+it.name+'">+</button>' +
+        '</div>';
+      it.row = row;
+      row.querySelectorAll(".step").forEach(function(b){
+        b.addEventListener("click", function(){ bump(it, Number(b.getAttribute("data-d"))); });
+      });
+      list.appendChild(row);
+    });
+    function bump(it, d){
+      q[it.id] = Math.max(0, q[it.id] + d);
+      it.row.querySelector(".qty-n").textContent = q[it.id];
+      it.row.querySelector('[data-d="-1"]').disabled = q[it.id] === 0;
+      render();
+    }
+    // Cartões de preço: somam 1 unidade do item e levam até o pedido.
+    document.querySelectorAll("a.tier[data-item]").forEach(function(a){
+      a.addEventListener("click", function(){
+        var it = ITEMS.filter(function(x){ return x.id === a.getAttribute("data-item"); })[0];
+        if (it && q[it.id] === 0) bump(it, 1);
+      });
+    });
+    var $ = function(id){ return document.getElementById(id); };
+    var nome = $("pedido-nome"), end = $("pedido-endereco");
+    function setModo(m){
+      modo = m;
+      $("modo-entrega").setAttribute("aria-pressed", m === "entrega");
+      $("modo-retirada").setAttribute("aria-pressed", m === "retirada");
+      $("campo-endereco").hidden = m !== "entrega";
+      render();
+    }
+    $("modo-entrega").addEventListener("click", function(){ setModo("entrega"); });
+    $("modo-retirada").addEventListener("click", function(){ setModo("retirada"); });
+    nome.addEventListener("input", render); end.addEventListener("input", render);
+    function render(){
+      var lines = [], total = 0, save = 0, pavs = 0;
+      ITEMS.forEach(function(it){
+        var n = q[it.id]; if (!n) return;
+        var sub = n * it.price; total += sub;
+        if (it.id === "kit4") save += n * (4 * 14 - 48);
+        pavs += n * (it.unidades || 1);
+        lines.push({ text: n + " " + (n === 1 ? it.one : it.many), sub: brl(sub) });
+      });
+      var has = lines.length > 0;
+      $("sum-empty").hidden = has; $("sum-lines").hidden = !has; $("sum-total").hidden = !has;
+      $("sum-lines").innerHTML = lines.map(function(l){ return '<div class="sum-line"><span>'+l.text+'</span><b>'+l.sub+'</b></div>'; }).join("");
+      $("sum-value").textContent = brl(total);
+      $("sum-save").hidden = save <= 0; $("sum-save").textContent = "Você economiza " + brl(save) + " com o kit";
+      $("sum-count").textContent = pavs + (pavs === 1 ? " pavê" : " pavês");
+      var n = nome.value.trim(), e = end.value.trim(), msg;
+      if (has) {
+        msg = "Olá, Pacumê! Quero fazer um pedido de Pavê da Farofinha:\n" +
+          lines.map(function(l){ return "• " + l.text + " — " + l.sub; }).join("\n") +
+          "\n\nTotal: " + brl(total) + " + frete" +
+          (n ? "\nNome: " + n : "") +
+          (modo === "entrega" ? "\nEntrega por aplicativo" + (e ? " no endereço: " + e : ". Meu endereço é: ") + "\n\nQual o valor do frete?" : "\nVou retirar em Pinheiros.");
+      } else {
+        msg = "Olá, Pacumê! Quero encomendar Pavê da Farofinha." + (n ? " Aqui é " + n + "." : "");
+      }
+      $("pedido-wa").href = "https://wa.me/" + PHONE + "?text=" + encodeURIComponent(msg);
+      $("pedido-wa-label").textContent = has ? "Enviar pedido no WhatsApp" : "Chamar no WhatsApp";
+    }
+    render();
+  })();
+  // Mensagem pronta no WhatsApp. Para trocar o número, edite WHATSAPP abaixo.
+  (function(){
+    var WHATSAPP = "5511992124664";
+    var DEFAULT_MSG = "Olá! Quero fazer um pedido de Pavê da Farofinha.";
+    document.querySelectorAll(".js-wa").forEach(function(a){
+      var msg = a.getAttribute("data-msg") || DEFAULT_MSG;
+      a.href = "https://wa.me/" + WHATSAPP + "?text=" + encodeURIComponent(msg);
+    });
+  })();
+</script>
+</body>
+</html>
