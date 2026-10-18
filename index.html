@@ -135,6 +135,14 @@ section{scroll-margin-top:calc(var(--hdr,86px) + 16px)}
 .tier .qty{font-family:var(--f-hand);font-weight:700;font-size:1.8rem;letter-spacing:.04em;text-transform:uppercase}
 .tier .size{color:var(--ink-soft);font-size:.95rem;margin-top:-6px}
 .tier.featured .size{color:#d8d2cc}
+.tier.soon{position:relative;cursor:not-allowed}
+.tier.soon > :not(.soon-badge){opacity:.45;filter:grayscale(1)}
+.soon-badge{position:absolute;top:14px;right:14px;z-index:1;font-family:var(--f-hand);font-weight:700;font-size:1.35rem;letter-spacing:.06em;text-transform:uppercase;line-height:1;padding:6px 12px 4px;border-radius:999px;background:var(--choc);color:var(--on-ink)}
+.tier.soon .tier-cta{background:transparent;color:inherit;border:2px dashed currentColor}
+.soon-note{margin:0;font-size:1.05rem;color:var(--ink-soft);max-width:60ch}
+.order-row.soon img,.order-row.soon .order-hint,.order-row.soon .stepper{opacity:.4}
+.order-row.soon .order-name{color:var(--ink-soft)}
+.order-row.soon .order-name::after{content:"Em breve";display:inline-block;white-space:nowrap;margin-left:10px;font-size:1.05rem;vertical-align:middle;padding:3px 10px 2px;border-radius:999px;background:var(--choc);color:var(--on-ink);letter-spacing:.06em}
 a.tier{text-decoration:none;color:inherit;transition:transform .15s ease, box-shadow .15s ease;cursor:pointer}
 a.tier:hover{transform:translateY(-3px);box-shadow:0 6px 0 var(--ink)}
 a.tier.featured:hover{box-shadow:0 6px 0 var(--choc)}
@@ -321,23 +329,26 @@ footer .row{display:flex;gap:12px;align-items:center}
         <p class="hand">Funcionamento</p>
         <h2 id="func-title">Escolha o seu pavê</h2>
         <div class="dots" aria-hidden="true"></div>
+        <p class="soon-note">Os pavês individuais chegam em breve. Por enquanto, os pedidos são do <strong>pavê grande de 750 ml</strong>.</p>
       </div>
 
       <div class="tiers">
-        <a class="tier" href="#pedido" data-item="ind">
+        <div class="tier soon" aria-disabled="true">
+          <span class="soon-badge">Em breve</span>
           <div class="tier-art"><img src="assets/img/pave-copo.png" alt="" width="700" height="1060" loading="lazy"></div>
           <p class="qty">1 pavê individual</p>
           <p class="size">aprox. 200 ml</p>
           <p class="price">R$ 14,00</p>
-          <span class="tier-cta">Montar meu pedido <span aria-hidden="true">→</span></span>
-        </a>
-        <a class="tier featured" href="#pedido" data-item="kit4">
+          <span class="tier-cta">Em breve</span>
+        </div>
+        <div class="tier featured soon" aria-disabled="true">
+          <span class="soon-badge">Em breve</span>
           <div class="tier-art"><img src="assets/img/pave-4copos.png" alt="" width="1098" height="400" loading="lazy"></div>
           <p class="qty">4 pavês individuais</p>
           <p class="size">aprox. 200 ml cada</p>
           <p class="price">R$ 48,00 <small>R$ 12,00 cada</small></p>
-          <span class="tier-cta">Montar meu pedido <span aria-hidden="true">→</span></span>
-        </a>
+          <span class="tier-cta">Em breve</span>
+        </div>
         <a class="tier" href="#pedido" data-item="g750">
           <div class="tier-art"><img src="assets/img/pave-grande-camadas.jpg" alt="Pavê grande na travessa de 750 ml, com as camadas de granulado, sorvete, chocolate e farofinha" width="900" height="636" loading="lazy"></div>
           <p class="qty">Pavê grande</p>
@@ -452,7 +463,7 @@ footer .row{display:flex;gap:12px;align-items:center}
         <div class="card">
           <img src="assets/img/contato-pedidos.png" alt="Pedidos online" width="800" height="336" loading="lazy">
           <ol class="steps">
-            <li>Escolha: pavê individual (aprox. 200 ml), kit com 4 ou pavê grande de 750 ml.</li>
+            <li>Escolha quantos pavês grandes (750 ml) você quer. Os individuais chegam em breve.</li>
             <li>Diga o endereço de entrega ou se prefere retirar em Pinheiros.</li>
             <li>Envie tudo pelo WhatsApp e combine o horário.</li>
             <li>Receba, guarde no congelador e retire uns 5 minutinhos antes de servir.</li>
@@ -486,8 +497,8 @@ footer .row{display:flex;gap:12px;align-items:center}
   (function(){
     var PHONE = "5511992124664";
     var ITEMS = [
-      { id:"ind",  name:"Pavê individual", hint:"aprox. 200 ml · R$ 14,00", price:14, img:"assets/img/pave-copo.png", one:"pavê individual", many:"pavês individuais", unidades:1 },
-      { id:"kit4", name:"Kit com 4 pavês", hint:"aprox. 200 ml cada · R$ 48,00", price:48, img:"assets/img/pave-4copos.png", one:"kit com 4 pavês", many:"kits com 4 pavês", unidades:4 },
+      { id:"ind",  name:"Pavê individual", hint:"aprox. 200 ml · R$ 14,00", price:14, img:"assets/img/pave-copo.png", one:"pavê individual", many:"pavês individuais", unidades:1, soon:true },
+      { id:"kit4", name:"Kit com 4 pavês", hint:"aprox. 200 ml cada · R$ 48,00", price:48, img:"assets/img/pave-4copos.png", one:"kit com 4 pavês", many:"kits com 4 pavês", unidades:4, soon:true },
       { id:"g750", name:"Pavê grande", hint:"750 ml, para dividir · R$ 50,00", price:50, img:"assets/img/pave-grande-camadas.jpg", one:"pavê grande (750 ml)", many:"pavês grandes (750 ml)", unidades:0 }
     ];
     var q = {}, modo = "entrega";
@@ -502,8 +513,9 @@ footer .row{display:flex;gap:12px;align-items:center}
         '<div class="stepper">' +
           '<button class="step" type="button" data-d="-1" aria-label="Remover '+it.name+'" disabled>−</button>' +
           '<span class="qty-n" aria-live="polite">0</span>' +
-          '<button class="step" type="button" data-d="1" aria-label="Adicionar '+it.name+'">+</button>' +
+          '<button class="step" type="button" data-d="1" aria-label="Adicionar '+it.name+'"'+(it.soon?' disabled':'')+'>+</button>' +
         '</div>';
+      if (it.soon){ row.classList.add("soon"); row.setAttribute("aria-disabled","true"); }
       it.row = row;
       row.querySelectorAll(".step").forEach(function(b){
         b.addEventListener("click", function(){ bump(it, Number(b.getAttribute("data-d"))); });
@@ -511,6 +523,7 @@ footer .row{display:flex;gap:12px;align-items:center}
       list.appendChild(row);
     });
     function bump(it, d){
+      if (it.soon) return;
       q[it.id] = Math.max(0, q[it.id] + d);
       it.row.querySelector(".qty-n").textContent = q[it.id];
       it.row.querySelector('[data-d="-1"]').disabled = q[it.id] === 0;
